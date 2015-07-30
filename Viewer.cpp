@@ -156,7 +156,7 @@ int indexOfContact(vector<Contact*> &listContact, int obj1, int obj2, Cellule::C
     return index;
 }
 
-int indexOfCellule(vector<Cellule> &listCellule, Cellule::Coord &coord) {
+int indexOfCellule(vector<Cellule> &listCellule, const Cellule::Coord &coord) {
     int index = -1;
     Cellule *cell = NULL;
     for (unsigned int i = 0; i < listCellule.size() && index == -1; ++i) {
