@@ -20,7 +20,7 @@
 
 *****************************************************************************/
 
-#include "QGLViewer/camera.h"
+#include <QGLViewer/camera.h>
 
 class StandardCamera : public qglviewer::Camera
 {

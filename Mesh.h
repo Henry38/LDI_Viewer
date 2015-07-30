@@ -1,7 +1,7 @@
 #ifndef MESH_H
 #define MESH_H
 
-#include "GL/glew.h"
+#include <GL/glew.h>
 
 #include "assimp/scene.h"
 #include "assimp/mesh.h"

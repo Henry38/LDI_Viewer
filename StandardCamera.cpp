@@ -20,7 +20,7 @@
 
 *****************************************************************************/
 
-#include "standardCamera.h"
+#include "StandardCamera.h"
 
 #include <QWheelEvent>
 

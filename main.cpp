@@ -1,7 +1,7 @@
 #include <QApplication>
 
 #include "Viewer.h"
-#include "standardCamera.h"
+#include "StandardCamera.h"
 
 using namespace std;
 

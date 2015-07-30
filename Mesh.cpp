@@ -14,11 +14,11 @@ using namespace std;
 *	Constructor, loading the specified aiMesh
 **/
 Mesh::MeshEntry::MeshEntry(aiMesh *mesh, int idObject) {
-    vbo[VERTEX_BUFFER] = NULL;
-    vbo[TEXCOORD_BUFFER] = NULL;
-    vbo[NORMAL_BUFFER] = NULL;
-    vbo[COLOR_BUFFER] = NULL;
-    vbo[INDEX_BUFFER] = NULL;
+    vbo[VERTEX_BUFFER] = 0;
+    vbo[TEXCOORD_BUFFER] = 0;
+    vbo[NORMAL_BUFFER] = 0;
+    vbo[COLOR_BUFFER] = 0;
+    vbo[INDEX_BUFFER] = 0;
 
     m_vertices = NULL;
     m_texCoords = NULL;

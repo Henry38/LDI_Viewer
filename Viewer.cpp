@@ -3,7 +3,7 @@
 #include "Viewer.h"
 #include "StandardCamera.h"
 
-#define LDI_RESOL 12    // 12 fragments pour 1 unite
+#define LDI_RESOL 12    // 12 fragments pour 1 unite de distance (m dans le monde)
 #define GRID_RESOL 4    // 4 cellules pour 1 unite
 
 using namespace std;
@@ -197,6 +197,7 @@ void Viewer::ldiComputation()
     sort(zLDI.begin(), zLDI.end());
 
     // Calcul des indices des debuts de liste
+    // x, y, z for the LDI directions
     k = 0;
     xCount.push_back(0);
     while (k < xLDI.size()) {
@@ -483,7 +484,7 @@ void Viewer::draw()
 
     int acc = 0;
     int i, j;
-    float depth, volume;
+    float depth=0, volume;
     Fragment frag;
 
     vector<Fragment> *ldi = NULL;
