@@ -35,7 +35,7 @@ Viewer::Viewer(StandardCamera* nfc) : QGLViewer()
 
     gradient = vector<vector<float>>(mMesh.size());
 
-    listCellule = vector<Cellule>();
+    listCellule = vector<vector<Cellule>>(3);
 }
 
 Viewer::~Viewer() {
@@ -156,6 +156,17 @@ int indexOfContact(vector<Contact*> &listContact, int obj1, int obj2, Cellule::C
     return index;
 }
 
+int indexOfCellule(vector<Cellule> &listCellule, Cellule::Coord &coord) {
+    int index = -1;
+    Cellule *cell = NULL;
+    for (unsigned int i = 0; i < listCellule.size() && index == -1; ++i) {
+        cell = &listCellule[i];
+        if (cell->coord() == coord) {
+            index = i;
+        }
+    }
+    return index;
+}
 
 
 /**
@@ -493,7 +504,7 @@ void Viewer::draw()
     }
 
     // Dessine les volumes d'intersection
-    for (Cellule cell : listCellule) {
+    for (Cellule cell : listCellule[direction]) {
         drawCellule(cell);
     }
 
@@ -653,6 +664,33 @@ void Viewer::init() {
             }
         }
     }
+
+    int index;
+
+    listCellule[0] = vector<Cellule>();
+    for (Contact *c : xListContact) {
+        index = indexOfCellule(listCellule[0], c->coord());
+        if (index == -1) {
+            listCellule[0].push_back(Cellule(c->coord()));
+        }
+    }
+
+    listCellule[1] = vector<Cellule>();
+    for (Contact *c : yListContact) {
+        index = indexOfCellule(listCellule[1], c->coord());
+        if (index == -1) {
+            listCellule[1].push_back(Cellule(c->coord()));
+        }
+    }
+
+    listCellule[2] = vector<Cellule>();
+    for (Contact *c : zListContact) {
+        index = indexOfCellule(listCellule[2], c->coord());
+        if (index == -1) {
+            listCellule[2].push_back(Cellule(c->coord()));
+        }
+    }
+
 
     modeRender = 0;
     modeDisplay = 0;

@@ -40,7 +40,7 @@ private:
 
     std::vector<std::vector<float>> gradient;
 
-    std::vector<Cellule> listCellule;
+    std::vector<std::vector<Cellule>> listCellule;
 };
 
 #endif // VIEWER_H
