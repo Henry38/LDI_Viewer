@@ -623,7 +623,7 @@ void Viewer::init() {
     // Couleur de fond de la scene
     glClearColor(0.0, 1.0, 0.0, 0.0);
 
-    string path = "C:/Users/henrylefevre/Documents/QtProject/LDI_Viewer/model/";
+    string path = MODEL_PATH;
     string models[2];
     models[0] = "sphere.stl";
     models[1] = "cube2.obj";
